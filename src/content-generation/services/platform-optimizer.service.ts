@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { TwitterStrategy } from '../strategies/twitter.strategy';
+import { LinkedInStrategy } from '../strategies/linkedin.strategy';
 import {
   PlatformStrategy,
   ContentContext,
@@ -11,11 +12,14 @@ export class PlatformOptimizerService {
   private readonly logger = new Logger(PlatformOptimizerService.name);
   private readonly strategies: Map<string, PlatformStrategy> = new Map();
 
-  constructor(private readonly twitterStrategy: TwitterStrategy) {
+  constructor(
+    private readonly twitterStrategy: TwitterStrategy,
+    private readonly linkedinStrategy: LinkedInStrategy,
+  ) {
     // Register available strategies
     this.strategies.set('twitter', this.twitterStrategy);
+    this.strategies.set('linkedin', this.linkedinStrategy);
     // Future platforms can be added here:
-    // this.strategies.set('linkedin', this.linkedinStrategy);
     // this.strategies.set('instagram', this.instagramStrategy);
   }
 

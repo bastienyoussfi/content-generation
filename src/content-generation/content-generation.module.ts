@@ -6,6 +6,7 @@ import { PlatformOptimizerService } from './services/platform-optimizer.service'
 import { ContentValidatorService } from './services/content-validator.service';
 import { OpenRouterProvider } from './providers/openrouter.provider';
 import { TwitterStrategy } from './strategies/twitter.strategy';
+import { LinkedInStrategy } from './strategies/linkedin.strategy';
 
 @Module({
   imports: [ConfigModule],
@@ -16,6 +17,7 @@ import { TwitterStrategy } from './strategies/twitter.strategy';
     ContentValidatorService,
     OpenRouterProvider,
     TwitterStrategy,
+    LinkedInStrategy,
   ],
   exports: [ContentGeneratorService],
 })

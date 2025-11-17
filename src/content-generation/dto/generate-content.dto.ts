@@ -5,7 +5,7 @@ export class GenerateContentDto {
   @ApiProperty({
     description: 'Target social media platform',
     example: 'twitter',
-    enum: ['twitter'],
+    enum: ['twitter', 'linkedin'],
   })
   @IsString()
   platform: string;
