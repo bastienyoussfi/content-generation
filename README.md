@@ -51,11 +51,81 @@ pnpm start:prod
 
 The API will be available at `http://localhost:3000/api`
 
+## Docker Setup
+
+Run the application using Docker for a consistent environment across all systems.
+
+### Prerequisites
+
+- Docker and Docker Compose installed on your system
+
+### Using Docker Compose (Recommended)
+
+1. **Copy environment file**:
+```bash
+cp .env.example .env
+```
+
+2. **Add your OpenRouter API key** to the `.env` file:
+```env
+OPENROUTER_API_KEY=your_api_key_here
+AI_MODEL=google/gemini-flash-1.5-8b
+```
+
+3. **Start the application**:
+```bash
+docker-compose up -d
+```
+
+The API will be available at `http://localhost:3001/api` (mapped from internal port 3000)
+
+4. **View logs**:
+```bash
+docker-compose logs -f app
+```
+
+5. **Stop the application**:
+```bash
+docker-compose down
+```
+
+### Docker Commands
+
+```bash
+# Build the image
+docker-compose build
+
+# Start in foreground (see logs directly)
+docker-compose up
+
+# Start in background
+docker-compose up -d
+
+# Restart the service
+docker-compose restart
+
+# View logs
+docker-compose logs -f
+
+# Stop and remove containers
+docker-compose down
+
+# Rebuild and start
+docker-compose up -d --build
+```
+
+### Access Points with Docker
+
+- API: `http://localhost:3001/api`
+- Swagger Documentation: `http://localhost:3001/docs`
+- Health Check: `http://localhost:3001/api/content-generation/health`
+
 ### 4. Explore the API Documentation
 
 Once the application is running, you can access the **interactive Swagger documentation** at:
 
-**http://localhost:3000/docs**
+- **Local Development**: http://localhost:3000/docs
+- **Docker**: http://localhost:3001/docs
 
 The Swagger UI provides:
 - 📖 Complete API documentation
@@ -113,7 +183,7 @@ This is the easiest way to explore and test the API without writing any code!
 
 ### API Endpoints
 
-> **💡 Tip**: For complete API documentation with interactive testing, visit [http://localhost:3000/docs](http://localhost:3000/docs) when the server is running.
+> **💡 Tip**: For complete API documentation with interactive testing, visit http://localhost:3000/docs (local) or http://localhost:3001/docs (Docker) when the server is running.
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
