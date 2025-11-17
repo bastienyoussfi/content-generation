@@ -17,8 +17,8 @@ export class TwitterStrategy implements PlatformStrategy {
   private readonly frameworks = {
     hook: [
       'Stop {doing X}. Start {doing Y} instead.',
-      'Here\'s why {topic} matters more than you think:',
-      'I spent {time} learning {topic}. Here\'s what I discovered:',
+      "Here's why {topic} matters more than you think:",
+      "I spent {time} learning {topic}. Here's what I discovered:",
       '{Number} things I wish I knew about {topic}:',
       'The biggest mistake people make with {topic}:',
     ],
@@ -46,7 +46,7 @@ export class TwitterStrategy implements PlatformStrategy {
   }
 
   generatePrompt(context: ContentContext): string {
-    const { topic, tone = 'conversational', targetAudience, format = 'single' } = context;
+    const { format = 'single' } = context;
 
     let prompt = '';
 
@@ -197,7 +197,7 @@ Output only the thread text, nothing else.`;
       'revolutionize',
       'in conclusion',
       'in summary',
-      'it\'s important to note',
+      "it's important to note",
       'tapestry',
       'landscape',
       'realm',
@@ -240,7 +240,7 @@ Output only the thread text, nothing else.`;
     };
   }
 
-  postProcess(content: string, context: ContentContext): string {
+  postProcess(content: string): string {
     let processed = content;
 
     // Remove common AI artifacts

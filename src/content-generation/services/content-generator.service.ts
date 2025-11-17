@@ -54,9 +54,7 @@ export class ContentGeneratorService {
   /**
    * Generate optimized content for a specific platform
    */
-  async generateContent(
-    request: ContentGenerationRequest,
-  ): Promise<ContentGenerationResponse> {
+  async generateContent(request: ContentGenerationRequest): Promise<ContentGenerationResponse> {
     const {
       platform,
       topic,
@@ -111,11 +109,7 @@ export class ContentGeneratorService {
       const improvedPrompt = `${prompt}\n\nIMPORTANT: Previous attempt failed with these issues: ${qualityResult.issues.critical.join(', ')}. Please address these issues.`;
 
       const retryResult = await this.aiProvider.generateContent(improvedPrompt, options);
-      generatedContent = this.platformOptimizer.postProcess(
-        platform,
-        retryResult.content,
-        context,
-      );
+      generatedContent = this.platformOptimizer.postProcess(platform, retryResult.content, context);
     }
 
     // Step 6: Optimize content for platform

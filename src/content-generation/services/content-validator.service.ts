@@ -39,7 +39,7 @@ export class ContentValidatorService {
     'in conclusion',
     'in summary',
     'to summarize',
-    'it\'s important to note',
+    "it's important to note",
     'it is important to note',
     'tapestry',
     'landscape',
@@ -89,7 +89,7 @@ export class ContentValidatorService {
   /**
    * Validate content quality and check for AI slop
    */
-  validateContent(content: string, platform: string = 'generic'): ContentQualityResult {
+  validateContent(content: string): ContentQualityResult {
     const issues = {
       critical: [] as string[],
       warnings: [] as string[],
@@ -107,7 +107,9 @@ export class ContentValidatorService {
     // Check for corporate jargon
     const jargonFound = this.detectCorporateJargon(content);
     if (jargonFound.length > 0) {
-      issues.warnings.push(`Corporate jargon found: "${jargonFound.join('", "')}". Use plain language.`);
+      issues.warnings.push(
+        `Corporate jargon found: "${jargonFound.join('", "')}". Use plain language.`,
+      );
     }
 
     // Check engagement elements
@@ -263,7 +265,7 @@ export class ContentValidatorService {
       'everyone knows',
       'as we all know',
       'generally speaking',
-      'in today\'s world',
+      "in today's world",
       'in this day and age',
     ];
 
@@ -305,8 +307,7 @@ export class ContentValidatorService {
     const platform = Math.min(10, sentenceVariety * 10 + 5);
 
     // Overall score (weighted average)
-    const overall =
-      (authenticity * 0.3 + engagement * 0.3 + clarity * 0.2 + platform * 0.2);
+    const overall = authenticity * 0.3 + engagement * 0.3 + clarity * 0.2 + platform * 0.2;
 
     return {
       overall: Math.round(overall * 10) / 10,

@@ -26,7 +26,8 @@ export class ContentMetadataDto {
   cost: number;
 
   @ApiProperty({
-    description: 'Quality score (0-10) based on authenticity, engagement, clarity, and platform fit',
+    description:
+      'Quality score (0-10) based on authenticity, engagement, clarity, and platform fit',
     example: 8.5,
     minimum: 0,
     maximum: 10,
@@ -86,7 +87,8 @@ export class ContentValidationDto {
 export class ContentResponseDto {
   @ApiProperty({
     description: 'Generated content',
-    example: 'Stop context-switching between 10 tools.\n\nI reduced my daily tool count from 12 to 3:\n- VS Code for coding\n- Linear for tasks\n- Slack for comms\n\nResult: 2x more deep work time.\n\nWhat\'s your essential 3?\n\n#DevProductivity #Coding',
+    example:
+      "Stop context-switching between 10 tools.\n\nI reduced my daily tool count from 12 to 3:\n- VS Code for coding\n- Linear for tasks\n- Slack for comms\n\nResult: 2x more deep work time.\n\nWhat's your essential 3?\n\n#DevProductivity #Coding",
   })
   content: string;
 

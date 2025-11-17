@@ -27,15 +27,15 @@ async function bootstrap() {
     .setTitle('Content Generation API')
     .setDescription(
       'AI-agnostic content generation API for social media platforms. ' +
-      'Generate high-quality, platform-optimized content with built-in anti-AI slop validation. ' +
-      'Supports multiple AI providers through OpenRouter with free models available.'
+        'Generate high-quality, platform-optimized content with built-in anti-AI slop validation. ' +
+        'Supports multiple AI providers through OpenRouter with free models available.',
     )
     .setVersion('1.0')
     .addTag('Content Generation', 'Endpoints for generating and managing social media content')
     .setContact(
       'Support',
       'https://github.com/yourusername/content-generation',
-      'support@example.com'
+      'support@example.com',
     )
     .setLicense('MIT', 'https://opensource.org/licenses/MIT')
     .addServer('http://localhost:3000', 'Development server')
@@ -60,7 +60,9 @@ async function bootstrap() {
 
   logger.log(`🚀 Application is running on: http://localhost:${port}/api`);
   logger.log(`📚 API Documentation: http://localhost:${port}/docs`);
-  logger.log(`📝 Content Generation endpoint: http://localhost:${port}/api/content-generation/generate`);
+  logger.log(
+    `📝 Content Generation endpoint: http://localhost:${port}/api/content-generation/generate`,
+  );
   logger.log(`❤️  Health check: http://localhost:${port}/api/content-generation/health`);
 }
 

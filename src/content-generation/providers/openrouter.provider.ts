@@ -52,13 +52,12 @@ export class OpenRouterProvider implements AIProvider {
       this.logger.warn('OPENROUTER_API_KEY not found in environment variables');
     }
 
-    this.currentModel =
-      this.configService.get<string>('AI_MODEL') || 'google/gemini-flash-1.5-8b';
+    this.currentModel = this.configService.get<string>('AI_MODEL') || 'google/gemini-flash-1.5-8b';
 
     this.httpClient = axios.create({
       baseURL: this.baseURL,
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         'HTTP-Referer': this.configService.get<string>('APP_URL') || 'http://localhost:3000',
         'X-Title': 'Content Generation App',
         'Content-Type': 'application/json',

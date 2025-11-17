@@ -15,7 +15,8 @@ export class ContentGenerationController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: 'Generate content for social media',
-    description: 'Generate high-quality, platform-optimized content using AI. Includes anti-AI slop validation, quality scoring, and platform-specific best practices.',
+    description:
+      'Generate high-quality, platform-optimized content using AI. Includes anti-AI slop validation, quality scoring, and platform-specific best practices.',
   })
   @ApiResponse({
     status: 200,
@@ -79,7 +80,8 @@ export class ContentGenerationController {
   @Get('platforms/:platform/constraints')
   @ApiOperation({
     summary: 'Get platform constraints',
-    description: 'Returns the constraints and limitations for a specific platform (character limits, hashtag rules, etc.)',
+    description:
+      'Returns the constraints and limitations for a specific platform (character limits, hashtag rules, etc.)',
   })
   @ApiParam({
     name: 'platform',
@@ -108,7 +110,8 @@ export class ContentGenerationController {
   @Get('model/info')
   @ApiOperation({
     summary: 'Get current AI model information',
-    description: 'Returns information about the currently configured AI model including pricing and whether it\'s free',
+    description:
+      "Returns information about the currently configured AI model including pricing and whether it's free",
   })
   @ApiResponse({
     status: 200,
