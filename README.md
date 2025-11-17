@@ -51,6 +51,21 @@ npm run start:prod
 
 The API will be available at `http://localhost:3000/api`
 
+### 4. Explore the API Documentation
+
+Once the application is running, you can access the **interactive Swagger documentation** at:
+
+**http://localhost:3000/docs**
+
+The Swagger UI provides:
+- 📖 Complete API documentation
+- 🧪 Interactive API testing (try endpoints directly from the browser)
+- 📋 Request/response schemas with examples
+- 🔍 Detailed parameter descriptions
+- ✅ Real-time validation feedback
+
+This is the easiest way to explore and test the API without writing any code!
+
 ## Usage
 
 ### Generate Content
@@ -97,6 +112,8 @@ The API will be available at `http://localhost:3000/api`
 ```
 
 ### API Endpoints
+
+> **💡 Tip**: For complete API documentation with interactive testing, visit [http://localhost:3000/docs](http://localhost:3000/docs) when the server is running.
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
