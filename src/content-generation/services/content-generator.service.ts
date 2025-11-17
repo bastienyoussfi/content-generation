@@ -98,7 +98,7 @@ export class ContentGeneratorService {
     generatedContent = this.platformOptimizer.postProcess(platform, generatedContent, context);
 
     // Step 4: Validate content quality
-    const qualityResult = this.validator.validateContent(generatedContent, platform);
+    const qualityResult = this.validator.validateContent(generatedContent);
     this.logger.log(`Content quality score: ${qualityResult.score.overall}/10`);
 
     // Step 5: If quality is too low, regenerate once
@@ -117,7 +117,7 @@ export class ContentGeneratorService {
 
     // Step 7: Final validation
     const platformValidation = this.platformOptimizer.validate(platform, optimized.content);
-    const finalQuality = this.validator.validateContent(optimized.content, platform);
+    const finalQuality = this.validator.validateContent(optimized.content);
 
     // Build response
     const response: ContentGenerationResponse = {
