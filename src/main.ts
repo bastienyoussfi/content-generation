@@ -22,6 +22,10 @@ async function bootstrap() {
   // Set global prefix
   app.setGlobalPrefix('api');
 
+  // Get port and app URL for Swagger configuration
+  const port = process.env.PORT || 3000;
+  const appUrl = process.env.APP_URL || `http://localhost:${port}`;
+
   // Setup Swagger documentation
   const config = new DocumentBuilder()
     .setTitle('Content Generation API')
@@ -38,8 +42,7 @@ async function bootstrap() {
       'support@example.com',
     )
     .setLicense('MIT', 'https://opensource.org/licenses/MIT')
-    .addServer('http://localhost:3000', 'Development server')
-    .addServer('https://api.yourdomain.com', 'Production server')
+    .addServer(appUrl, process.env.NODE_ENV === 'production' ? 'Production server' : 'Development server')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
@@ -55,7 +58,6 @@ async function bootstrap() {
     },
   });
 
-  const port = process.env.PORT || 3000;
   await app.listen(port);
 
   logger.log(`🚀 Application is running on: http://localhost:${port}/api`);
