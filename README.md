@@ -16,7 +16,7 @@ AI-agnostic NestJS module for generating high-quality, platform-optimized social
 ### 1. Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 2. Configuration
@@ -42,11 +42,11 @@ AI_MODEL=google/gemini-flash-1.5-8b
 
 ```bash
 # Development
-npm run start:dev
+pnpm start:dev
 
 # Production
-npm run build
-npm run start:prod
+pnpm build
+pnpm start:prod
 ```
 
 The API will be available at `http://localhost:3000/api`
@@ -212,16 +212,16 @@ Quality is scored on:
 
 ```bash
 # Run in development mode
-npm run start:dev
+pnpm start:dev
 
 # Build
-npm run build
+pnpm build
 
 # Format code
-npm run format
+pnpm format
 
 # Lint
-npm run lint
+pnpm lint
 ```
 
 ## Adding New Platforms
